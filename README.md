@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Moo and More is a command line interface that provides the user with the option to choose from several numbered lists of creature categories: 1. Mammals and Marsupials, 2. Birds, 3. Fish, 4. Reptiles and Amphibians, 5. Invertebrates (including insects, mollusks, etc.), and 6. Single-Celled Organisms. The creature categories will serve as the command line interface's home screen. After selecting a list category, the user will see an alphabetized list of creatures associated with the list category. The user can then determine the collective noun of each creature by entering its associated list number. After the collective noun is displayed, the user will have the option to generate another collective noun for a creature of the same category by typing "Moove Over" or return to the main list menu by typing "More lists."
+
 
 ## Development
 
