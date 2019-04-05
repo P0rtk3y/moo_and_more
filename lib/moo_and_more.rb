@@ -1,6 +1,5 @@
-require "moo_and_more/version"
+require 'nokogiri'
+require 'pry'
 
-module MooAndMore
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative 'moo_and_more/version'
+require_relative "moo_and_more/cli"
