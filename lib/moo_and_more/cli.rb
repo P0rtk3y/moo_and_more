@@ -4,7 +4,7 @@ class MooAndMore::CLI
 
   def call
     puts "Welcome to Moo and More -- A Collective Noun Generator for Lifeforms!"
-    # MooAndMore::Scraper.new.make_lifeform_lists
+    MooAndMore::Scraper.new.get_page
     start
   end
 
@@ -18,7 +18,7 @@ class MooAndMore::CLI
          4. Reptiles and Amphibians
          5. Invertebrates (including insects, mollusks, etc.)
          6. Single-Celled Organism
-         Enter: 1 - 6
+    Enter: 1 - 6
     DOC
     input = gets.strip.to_i
   end
