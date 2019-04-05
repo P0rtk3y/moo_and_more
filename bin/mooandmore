@@ -1,0 +1,7 @@
+require "nokogiri"
+require "pry"
+
+require_relative "../lib/moo_and_more/version"
+require_relative "../lib/moo_and_more/cli"
+
+MooAndMore::CLI.new.call
