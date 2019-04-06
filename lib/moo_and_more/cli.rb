@@ -20,9 +20,9 @@ class MooAndMore::CLI
          6. Single-Celled Organism
     Enter: 1 - 6
     DOC
-    input = gets.strip.to_i
-  end
-  #   print_category(input)
+    input = gets.strip.to_s_to_sym
+
+    print_category(input)
   #
   #   puts ""
   #   puts "Type the number next to the lifeform to see its collective noun"
@@ -46,6 +46,9 @@ class MooAndMore::CLI
   #     exit
   #   end
   #
-  # end
+  end
+
+  def print_category(from_number)
+    
 
 end
