@@ -15,14 +15,14 @@ class MooAndMore::CLI
          1. Mammals & Marsupials
          2. Birds
          3. Fish
-         4. Reptiles and Amphibians
+         4. Reptiles & Amphibians
          5. Invertebrates (including insects, mollusks, etc.)
-         6. Single-Celled Organism
+         6. Single-Celled Organisms
     Enter: 1 - 6
     DOC
-    input = gets.strip.to_s_to_sym
-
-    print_category(input)
+    input = gets.strip
+    MooAndMore::Scraper.new.make_categories(input)
+    # print_category(input)
   #
   #   puts ""
   #   puts "Type the number next to the lifeform to see its collective noun"
@@ -48,7 +48,7 @@ class MooAndMore::CLI
   #
   end
 
-  def print_category(from_number)
-    
+  # def print_category(input)
+  # end
 
 end
