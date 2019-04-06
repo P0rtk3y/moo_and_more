@@ -1,12 +1,17 @@
 class MooAndMore::Lifeform
 
-  attr_accessor :category, :id, :name, :noun
+  attr_accessor :id, :name, :noun
 
   @@all = []
 
-  def self.new.from_scraper(c)
+  def self.new_from_scraper(c)
+    self.new(
+      c.values[0].css("td")[0].text,
+      c.
+    )
+  end
 
-  def initialize(category, id, name, noun)
+  def initialize(category, id=nil, name=nil, noun=nil)
     @category = category
     @id = id
     @name = name

@@ -22,36 +22,36 @@ class MooAndMore::CLI
     DOC
     input = gets.strip
 
-    category = MooAndMore::Scraper.new.make_categories
+    category = MooAndMore::Scraper.new.get_category_list(input)
 
-    print_category(category)
+  #   print_category(category)
+  # #
+  # #   puts ""
+  # #   puts "Type the number next to the lifeform to see its collective noun"
+  # #   input = gets.strip
+  # #
+  # #   lifeform = MooAndMore::Lifeform.find(input.to_i)
+  # #   print_lifeform(lifeform)
+  # #
+  # #   puts ""
+  # #   puts "Would you like to see another collective noun for a lifeform\n
+  # #        in the same category? (If yes, enter: Moove Over.\n
+  # #        To return to the main menu, enter: More Lists.\n
+  # #        You may exit Moo and More at any time by entering: Exit"
+  # #   input = gets.strip.upcase
+  # #   if input == "MOOVE OVER"
+  # #     print_lifeform(lifeform)
+  # #   elsif input == "MORE LISTS"
+  # #     start
+  # #   else
+  # #     "Thank you for visiting Moo and More!"
+  # #     exit
+  # #   end
+  # #
+  # end
   #
-  #   puts ""
-  #   puts "Type the number next to the lifeform to see its collective noun"
-  #   input = gets.strip
+  # def print_category(category)
   #
-  #   lifeform = MooAndMore::Lifeform.find(input.to_i)
-  #   print_lifeform(lifeform)
-  #
-  #   puts ""
-  #   puts "Would you like to see another collective noun for a lifeform\n
-  #        in the same category? (If yes, enter: Moove Over.\n
-  #        To return to the main menu, enter: More Lists.\n
-  #        You may exit Moo and More at any time by entering: Exit"
-  #   input = gets.strip.upcase
-  #   if input == "MOOVE OVER"
-  #     print_lifeform(lifeform)
-  #   elsif input == "MORE LISTS"
-  #     start
-  #   else
-  #     "Thank you for visiting Moo and More!"
-  #     exit
-  #   end
-  #
-  end
-
-  def print_category(category)
-
   end
 
 end

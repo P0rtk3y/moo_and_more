@@ -10,12 +10,26 @@ class MooAndMore::Scraper
       list_content.each_with_index do |content, i|
         @categories["#{i.next}"] = content
       end
+    @categories
   end
 
-  def get_collective_noun
-    make_categories.each do |c|
+  def get_category_list(input=nil)
+    if input != nil
+      make_categories
+      binding.pry
+      @categories["#{input}"].css("td").select.with_index do |lifeform, i|
+        if i > 1 && i.even?
+          puts "#{i/2}. #{lifeform.text}"
+        end
+      end
+    end
+  end
+
+  def get_collective(input, noun)
+    get_category_list(input)
+    @categories["#{input}"].each do |c|
       MooAndMore::Lifeform.new_from_scraper(c)
-    end 
+    end
   end
 
 end
