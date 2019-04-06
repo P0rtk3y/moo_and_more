@@ -4,6 +4,8 @@ class MooAndMore::Lifeform
 
   @@all = []
 
+  def self.new.from_scraper(c)
+
   def initialize(category, id, name, noun)
     @category = category
     @id = id

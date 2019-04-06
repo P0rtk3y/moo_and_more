@@ -21,8 +21,10 @@ class MooAndMore::CLI
     Enter: 1 - 6
     DOC
     input = gets.strip
-    MooAndMore::Scraper.new.make_categories(input)
-    # print_category(input)
+
+    category = MooAndMore::Scraper.new.make_categories
+
+    print_category(category)
   #
   #   puts ""
   #   puts "Type the number next to the lifeform to see its collective noun"
@@ -48,7 +50,8 @@ class MooAndMore::CLI
   #
   end
 
-  # def print_category(input)
-  # end
+  def print_category(category)
+
+  end
 
 end
