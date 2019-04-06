@@ -16,7 +16,6 @@ class MooAndMore::Scraper
   def get_category_list(input=nil)
     if input != nil
       make_categories
-      binding.pry
       @categories["#{input}"].css("td").select.with_index do |lifeform, i|
         if i > 1 && i.even?
           puts "#{i/2}. #{lifeform.text}"
@@ -26,7 +25,7 @@ class MooAndMore::Scraper
   end
 
   def get_collective(input, noun)
-    get_category_list(input)
+    make_categories
     @categories["#{input}"].each do |c|
       MooAndMore::Lifeform.new_from_scraper(c)
     end
