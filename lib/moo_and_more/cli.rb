@@ -3,12 +3,15 @@
 class MooAndMore::CLI
 
   def call
-    puts "                            _,,,_"
-    puts "                           (d. .b)"
-    puts "                            ((Y))"
-    puts "                             | |"
-    puts "                         \_('')('')"
-    puts "Welcome to Moo and More -- A Collective Noun Generator for Lifeforms!"
+    puts "          ____________________________________________"
+    puts "          |                    _,,,_                 |"
+    puts "          |        (o)_(o)    (d. .b)      cCcCc     |"
+    puts "          |        | . . |     ((Y))      (^ o ^)    |"
+    puts "          |        (= X =)      | |      @|(   )|@   |"
+    puts "          |      |_('')('') |_('')('')       ^^      |"
+    puts "----------------------------------------------------------------------"
+    puts " WELCOME TO MOO AND MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
+    puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
     get_input
   end
@@ -21,7 +24,7 @@ class MooAndMore::CLI
          2. Birds
          3. Fish
          4. Reptiles & Amphibians
-         5. Invertebrates (including insects, mollusks, etc.)
+         5. Invertebrates (insects, mollusks, etc.)
          6. Single-Celled Organisms
     Enter: 1 - 6
     DOC
@@ -31,6 +34,7 @@ class MooAndMore::CLI
     puts ""
     puts "Select a number to see the collective noun:"
     MooAndMore::Scraper.new.get_category_list(input)
+
 
 
 
@@ -63,22 +67,22 @@ class MooAndMore::CLI
     case input
       when "1"
         puts "-----------MAMMALS & MARSUPIALS------------"
-        puts "         -------------------------    "
+        puts "           --------------------    "
       when "2"
         puts "----------------BIRDS----------------"
-        puts "        ----------------------    "
+        puts "                -----    "
       when "3"
         puts "---------------FISH-------------------"
-        puts "       ---------------------   "
+        puts "               -----   "
       when "4"
         puts "----------REPTILES & AMPHIBIANS-----------"
-        puts "      -----------------------------   "
+        puts "          ---------------------   "
       when "5"
-        puts "---INVERTEBRATES (insects, mollusks, etc.)---"
-        puts "      ------------------------------       "
+        puts "---INVERTEBRATES (INSECTS, MOLLUSKS, ETC.)---"
+        puts "   ---------------------------------------       "
       when "6"
         puts "-------SINGLE-CELLED ORGANISMS-------"
-        puts "    -----------------------------    "
+        puts "       -----------------------    "
     end
   end
 
