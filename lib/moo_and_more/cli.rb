@@ -42,7 +42,8 @@ class MooAndMore::CLI
       when "DEPART"
         goodbye
       else
-        puts "Invalid number. Please select a number from the category list or exit by entering 'DEPART'"
+        puts "INVALID NUMBER. Please select a number from the category list or exit by entering 'DEPART'"
+        self.get_input
     end
   end
 
@@ -56,7 +57,6 @@ class MooAndMore::CLI
   end
 
   def get_next(input)
-    puts ""
     puts "Would you like to see another collective noun for a lifeform in the same category?
          If yes, enter: 'MOO OVER'
          To return to the main menu, enter: 'MORE LISTS'
@@ -72,7 +72,8 @@ class MooAndMore::CLI
     elsif option == "DEPART"
         goodbye
     else
-        "Invalid entry. Please enter: 'MOO OVER', 'MORE LISTS' or 'DEPART'."
+        puts "INVALID ENTRY!"
+        self.get_next(input)
     end
   end
 
