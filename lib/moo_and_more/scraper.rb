@@ -23,7 +23,7 @@ class MooAndMore::Scraper
       end
   end
 
-  def find_noun
+  def add_noun
     make_categories
     @categories.each do |category, content|
       content.css("td").each_with_index do |list_item, i|
@@ -34,7 +34,7 @@ class MooAndMore::Scraper
         elsif i > 2 && i.odd?
           MooAndMore::Lifeform.all.select do |item|
             if item.id == ((i-1)/2)
-              item.noun = list_item.text
+              item.noun = list_item.text.gsub("\u00C2", "")
             end
           end
         end

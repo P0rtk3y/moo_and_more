@@ -13,8 +13,7 @@ class MooAndMore::CLI
     puts " WELCOME TO MOO AND MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
-    # start
-    get_collective
+    start
   end
 
   def start
@@ -29,6 +28,7 @@ class MooAndMore::CLI
          6. Single-Celled Organisms
     Enter: 1 - 6
     DOC
+    get_input
   end
 
   def get_input
@@ -38,7 +38,7 @@ class MooAndMore::CLI
         print_category(input)
         puts ""
         MooAndMore::Scraper.new.get_category_list(input)
-        # get_noun
+        get_noun(input)
       when "DEPART"
         goodbye
       else
@@ -46,10 +46,10 @@ class MooAndMore::CLI
     end
   end
 
-  def get_collective
-    # lifeform = gets.strip
-    MooAndMore::Scraper.new.find_noun
-    MooAndMore::Lifeform.all
+  def get_noun(input)
+    noun = gets.strip
+    MooAndMore::Scraper.new.add_noun
+    MooAndMore::Lifeform.find(input, noun)
     # MooAndMore::Lifeform.find(lifeform)
   end
   # #
@@ -97,6 +97,9 @@ class MooAndMore::CLI
         puts "-------SINGLE-CELLED ORGANISMS-------"
         puts "       -----------------------    "
     end
+  end
+
+  def print_noun(lifeform)
   end
 
   def goodbye
