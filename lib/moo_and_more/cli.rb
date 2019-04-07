@@ -47,35 +47,35 @@ class MooAndMore::CLI
   end
 
   def get_noun(input)
+    puts "Select a number to see the collective noun(s):"
     noun = gets.strip
     MooAndMore::Scraper.new.add_noun
     MooAndMore::Lifeform.find(input, noun)
+    get_next(input)
     # MooAndMore::Lifeform.find(lifeform)
   end
-  # #
-  # #   puts ""
-  # #   puts "Type the number next to the lifeform to see its collective noun"
-  # #   input = gets.strip
-  # #
-  # #   lifeform = MooAndMore::Lifeform.find(input.to_i)
-  # #   print_lifeform(lifeform)
-  # #
-  # #   puts ""
-  # #   puts "Would you like to see another collective noun for a lifeform\n
-  # #        in the same category? (If yes, enter: Moove Over.\n
-  # #        To return to the main menu, enter: More Lists.\n
-  # #        You may exit Moo and More at any time by entering: Exit"
-  # #   input = gets.strip.upcase
-  # #   if input == "MOOVE OVER"
-  # #     print_lifeform(lifeform)
-  # #   elsif input == "MORE LISTS"
-  # #     start
-  # #   else
-  # #     "Thank you for visiting Moo and More!"
-  # #     exit
-  # #   end
-  # #
-  #
+
+  def get_next(input)
+    puts ""
+    puts "Would you like to see another collective noun for a lifeform in the same category?
+         If yes, enter: 'MOO OVER'
+         To return to the main menu, enter: 'MORE LISTS'
+         To exit Moo & More, enter: 'DEPART'"
+
+    option = gets.strip.upcase
+    if option == "MOO OVER"
+        print_category(input)
+        MooAndMore::Scraper.new.get_category_list(input)
+        get_noun(input)
+    elsif option == "MORE LISTS"
+        start
+    elsif option == "DEPART"
+        goodbye
+    else
+        "Invalid entry. Please enter: 'MOO OVER', 'MORE LISTS' or 'DEPART'."
+    end
+  end
+
   def print_category(input)
     case input
       when "1"
@@ -97,9 +97,6 @@ class MooAndMore::CLI
         puts "-------SINGLE-CELLED ORGANISMS-------"
         puts "       -----------------------    "
     end
-  end
-
-  def print_noun(lifeform)
   end
 
   def goodbye
