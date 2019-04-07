@@ -26,9 +26,17 @@ class MooAndMore::Scraper
   def find_noun
     make_categories
     @categories.each do |category, content|
-      content.css("td").each_with_index do |lifeform, i|
+      content.css("td").each_with_index do |list_item, i|
         if i > 1 && i.even?
-          MooAndMore::Lifeform.new_from_scraper(category, i, lifeform)
+          id = i/2
+          lifeform = list_item
+          MooAndMore::Lifeform.new_from_scraper(category, id, lifeform)
+        elsif i > 2 && i.odd?
+          MooAndMore::Lifeform.all.select do |item|
+            if item.id == ((i-1)/2)
+              item.noun = list_item.text
+            end
+          end
         end
       end
     end

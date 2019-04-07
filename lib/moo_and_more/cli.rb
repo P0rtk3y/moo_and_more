@@ -49,7 +49,6 @@ class MooAndMore::CLI
   def get_collective
     # lifeform = gets.strip
     MooAndMore::Scraper.new.find_noun
-    binding.pry
     MooAndMore::Lifeform.all
     # MooAndMore::Lifeform.find(lifeform)
   end

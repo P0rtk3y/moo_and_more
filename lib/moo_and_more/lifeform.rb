@@ -4,11 +4,12 @@ class MooAndMore::Lifeform
 
   @@all = []
 
-  def self.new_from_scraper(category, i, lifeform)
+  def self.new_from_scraper(category, id, lifeform, noun=nil)
     self.new(
       category,
-      (i/2),
-      lifeform.text
+      id,
+      lifeform.text,
+      noun
     )
   end
 
@@ -23,4 +24,5 @@ class MooAndMore::Lifeform
   def self.all
     @@all
   end
+
 end
