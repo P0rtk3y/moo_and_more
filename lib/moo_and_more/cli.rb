@@ -5,10 +5,10 @@ class MooAndMore::CLI
   def call
     puts "Welcome to Moo and More -- A Collective Noun Generator for Lifeforms!"
     MooAndMore::Scraper.new.get_page
-    start
+    get_input
   end
 
-  def start
+  def get_input
     puts ""
     puts <<-DOC
     Which category would you like to see?
@@ -23,8 +23,7 @@ class MooAndMore::CLI
     input = gets.strip
 
     category = MooAndMore::Scraper.new.get_category_list(input)
-
-  #   print_category(category)
+    print_category(input, category)
   # #
   # #   puts ""
   # #   puts "Type the number next to the lifeform to see its collective noun"
@@ -48,10 +47,30 @@ class MooAndMore::CLI
   # #     exit
   # #   end
   # #
-  # end
+  end
   #
-  # def print_category(category)
-  #
+  def print_category(category, input)
+    case input
+      when "1"
+        puts "------MAMMALS & MARSUPIALS-------"
+        puts "   -------------------------    "
+      when "2"
+        puts "----------BIRDS----------"
+        puts " _----------------------    "
+      when "3"
+        puts "-----------FISH-------------"
+        puts "   ---------------------   "
+      when "4"
+        puts "-------REPTILES & AMPHIBIANS--------"
+        puts "    ---------------------------------     "
+      when "5"
+        puts "---INVERTEBRATES (insects, mollusks, etc.)---"
+        puts "      ------------------------------       "
+      when "6"
+        puts "-------SINGLE-CELLED ORGANISMS-------"
+        puts "    --------------------------------- "
+    end 
+    category 
   end
 
 end
