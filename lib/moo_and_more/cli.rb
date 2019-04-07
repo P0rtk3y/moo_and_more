@@ -13,7 +13,7 @@ class MooAndMore::CLI
     puts " WELCOME TO MOO AND MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
-    start
+    # start
     get_collective
   end
 
@@ -49,7 +49,8 @@ class MooAndMore::CLI
   def get_collective
     # lifeform = gets.strip
     MooAndMore::Scraper.new.find_noun
-    MooAndMore::
+    binding.pry
+    MooAndMore::Lifeform.all
     # MooAndMore::Lifeform.find(lifeform)
   end
   # #

@@ -27,7 +27,7 @@ class MooAndMore::Scraper
     make_categories
     @categories.each do |category, content|
       content.css("td").each_with_index do |lifeform, i|
-        if i > 1
+        if i > 1 && i.even?
           MooAndMore::Lifeform.new_from_scraper(category, i, lifeform)
         end
       end
