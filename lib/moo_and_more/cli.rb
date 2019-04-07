@@ -10,7 +10,7 @@ class MooAndMore::CLI
     puts "          |        (= X =)        | |      @|(   )|@   |"
     puts "          |      |_('')('')   |_('')('')       ^^      |"
     puts "----------------------------------------------------------------------"
-    puts " WELCOME TO MOO AND MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
+    puts "  WELCOME TO MOO & MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
     start

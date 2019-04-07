@@ -14,7 +14,7 @@ class MooAndMore::Scraper
   end
 
   def get_category_list(input=nil)
-    puts "Select a number to see the collective noun:"
+    puts "Select a number to see the collective noun(s):"
       make_categories
       @categories["#{input}"].css("td").select.with_index do |lifeform, i|
         if i > 1 && i.even?
