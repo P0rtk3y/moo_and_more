@@ -13,10 +13,11 @@ class MooAndMore::CLI
     puts " WELCOME TO MOO AND MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS "
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
+    start
     get_input
   end
 
-  def get_input
+  def start
     puts ""
     puts <<-DOC
     Which category would you like to see?
@@ -28,14 +29,19 @@ class MooAndMore::CLI
          6. Single-Celled Organisms
     Enter: 1 - 6
     DOC
+  end
+
+  def get_input
     input = gets.strip
-
-    print_category(input)
-    puts ""
-    puts "Select a number to see the collective noun:"
-    MooAndMore::Scraper.new.get_category_list(input)
-
-
+    if input.upcase != "EXIT"
+      print_category(input)
+      puts ""
+      puts "Select a number to see the collective noun:"
+      MooAndMore::Scraper.new.get_category_list(input)
+    else
+      goodbye
+    end
+  end
 
 
   # #
@@ -61,7 +67,6 @@ class MooAndMore::CLI
   # #     exit
   # #   end
   # #
-  end
   #
   def print_category(input)
     case input
@@ -83,7 +88,13 @@ class MooAndMore::CLI
       when "6"
         puts "-------SINGLE-CELLED ORGANISMS-------"
         puts "       -----------------------    "
+      else
+        puts "Invalid number. Please select a number from the list or type 'EXIT'"
     end
+  end
+
+  def goodbye
+    puts "Thank you for visiting Moo and More!"
   end
 
 end
