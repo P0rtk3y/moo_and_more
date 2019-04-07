@@ -3,6 +3,11 @@
 class MooAndMore::CLI
 
   def call
+    puts "                            _,,,_"
+    puts "                           (d. .b)"
+    puts "                            ((Y))"
+    puts "                             | |"
+    puts "                         \_('')('')"
     puts "Welcome to Moo and More -- A Collective Noun Generator for Lifeforms!"
     MooAndMore::Scraper.new.get_page
     get_input
@@ -22,8 +27,13 @@ class MooAndMore::CLI
     DOC
     input = gets.strip
 
-    category = MooAndMore::Scraper.new.get_category_list(input)
-    print_category(input, category)
+    print_category(input)
+    puts ""
+    puts "Select a number to see the collective noun:"
+    MooAndMore::Scraper.new.get_category_list(input)
+
+
+
   # #
   # #   puts ""
   # #   puts "Type the number next to the lifeform to see its collective noun"
@@ -49,28 +59,27 @@ class MooAndMore::CLI
   # #
   end
   #
-  def print_category(category, input)
+  def print_category(input)
     case input
       when "1"
-        puts "------MAMMALS & MARSUPIALS-------"
-        puts "   -------------------------    "
+        puts "-----------MAMMALS & MARSUPIALS------------"
+        puts "         -------------------------    "
       when "2"
-        puts "----------BIRDS----------"
-        puts " _----------------------    "
+        puts "----------------BIRDS----------------"
+        puts "        ----------------------    "
       when "3"
-        puts "-----------FISH-------------"
-        puts "   ---------------------   "
+        puts "---------------FISH-------------------"
+        puts "       ---------------------   "
       when "4"
-        puts "-------REPTILES & AMPHIBIANS--------"
-        puts "    ---------------------------------     "
+        puts "----------REPTILES & AMPHIBIANS-----------"
+        puts "      -----------------------------   "
       when "5"
         puts "---INVERTEBRATES (insects, mollusks, etc.)---"
         puts "      ------------------------------       "
       when "6"
         puts "-------SINGLE-CELLED ORGANISMS-------"
-        puts "    --------------------------------- "
-    end 
-    category 
+        puts "    -----------------------------    "
+    end
   end
 
 end
