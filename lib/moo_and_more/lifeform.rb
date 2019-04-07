@@ -28,7 +28,12 @@ class MooAndMore::Lifeform
   def self.find(input, noun)
     self.all.detect do |list_item|
       if input == list_item.category && noun.to_i == list_item.id
-        puts "The collective noun(s) for #{list_item.name.upcase} include #{list_item.noun.upcase}"
+        puts ""
+        puts ""
+        puts "The collective noun(s) for #{list_item.name.upcase}:"
+        puts "|   #{list_item.noun.upcase}   |"
+        puts ""
+        puts ""
       end
     end
   end
