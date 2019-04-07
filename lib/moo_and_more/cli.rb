@@ -103,7 +103,14 @@ class MooAndMore::CLI
   end
 
   def goodbye
-    puts "Thank you for visiting Moo and More!"
+    puts "----------------------------------"
+    puts "THANK YOU FOR VISITING MOO & MORE "
+    puts "     ()~()~~~________ /^     "
+    puts "      ('')__( @  @  @ )     "
+    puts "    @_[..]  | / +++ |/      "
+    puts "            ||      || * *  "
+    puts "     |||||||||||||||||||||| "
+    puts "----------------------------------"
   end
 
 end
