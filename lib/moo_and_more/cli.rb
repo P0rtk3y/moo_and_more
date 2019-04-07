@@ -14,7 +14,7 @@ class MooAndMore::CLI
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
     start
-    get_input
+    get_collective
   end
 
   def start
@@ -46,10 +46,12 @@ class MooAndMore::CLI
     end
   end
 
-  # def get_noun
-  #   lifeform = gets.strip
-  #   MooAndMore::Lifeform.find(lifeform)
-  # end
+  def get_collective
+    # lifeform = gets.strip
+    MooAndMore::Scraper.new.find_noun
+    MooAndMore::
+    # MooAndMore::Lifeform.find(lifeform)
+  end
   # #
   # #   puts ""
   # #   puts "Type the number next to the lifeform to see its collective noun"

@@ -23,10 +23,14 @@ class MooAndMore::Scraper
       end
   end
 
-  def get_noun(input, noun)
+  def find_noun
     make_categories
-    @categories["#{input}"].each do |c|
-      MooAndMore::Lifeform.new_from_scraper(c)
+    @categories.each do |category, content|
+      content.css("td").each_with_index do |lifeform, i|
+        if i > 1
+          MooAndMore::Lifeform.new_from_scraper(category, i, lifeform)
+        end
+      end
     end
   end
 
