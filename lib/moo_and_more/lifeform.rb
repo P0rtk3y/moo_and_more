@@ -8,7 +8,7 @@ class MooAndMore::Lifeform
     self.new(
       category,
       id,
-      lifeform.text,
+      lifeform,
       noun
     )
   end
@@ -24,5 +24,14 @@ class MooAndMore::Lifeform
   def self.all
     @@all
   end
+
+  def self.find(input, noun)
+    self.all.detect do |list_item|
+      if input == list_item.category && noun.to_i == list_item.id
+        puts "The collective noun(s) for #{list_item.name.upcase} include #{list_item.noun.upcase}"
+      end
+    end
+  end
+
 
 end

@@ -29,7 +29,7 @@ class MooAndMore::Scraper
       content.css("td").each_with_index do |list_item, i|
         if i > 1 && i.even?
           id = i/2
-          lifeform = list_item
+          lifeform = list_item.text
           MooAndMore::Lifeform.new_from_scraper(category, id, lifeform)
         elsif i > 2 && i.odd?
           MooAndMore::Lifeform.all.select do |item|
