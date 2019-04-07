@@ -14,17 +14,16 @@ class MooAndMore::Scraper
   end
 
   def get_category_list(input=nil)
-    if input != nil
+    puts "Select a number to see the collective noun:"
       make_categories
       @categories["#{input}"].css("td").select.with_index do |lifeform, i|
         if i > 1 && i.even?
           puts "#{i/2}. #{lifeform.text}"
         end
       end
-    end
   end
 
-  def get_collective(input, noun)
+  def get_noun(input, noun)
     make_categories
     @categories["#{input}"].each do |c|
       MooAndMore::Lifeform.new_from_scraper(c)

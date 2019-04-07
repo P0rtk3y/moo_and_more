@@ -33,17 +33,23 @@ class MooAndMore::CLI
 
   def get_input
     input = gets.strip
-    if input.upcase != "EXIT"
-      print_category(input)
-      puts ""
-      puts "Select a number to see the collective noun:"
-      MooAndMore::Scraper.new.get_category_list(input)
-    else
-      goodbye
+    case input.to_s.upcase
+      when "1", "2", "3", "4", "5", "6"
+        print_category(input)
+        puts ""
+        MooAndMore::Scraper.new.get_category_list(input)
+        # get_noun
+      when "DEPART"
+        goodbye
+      else
+        puts "Invalid number. Please select a number from the category list or exit by entering 'DEPART'"
     end
   end
 
-
+  # def get_noun
+  #   lifeform = gets.strip
+  #   MooAndMore::Lifeform.find(lifeform)
+  # end
   # #
   # #   puts ""
   # #   puts "Type the number next to the lifeform to see its collective noun"
@@ -78,7 +84,7 @@ class MooAndMore::CLI
         puts "                -----    "
       when "3"
         puts "---------------FISH-------------------"
-        puts "               -----   "
+        puts "               ----  "
       when "4"
         puts "----------REPTILES & AMPHIBIANS-----------"
         puts "          ---------------------   "
@@ -88,8 +94,6 @@ class MooAndMore::CLI
       when "6"
         puts "-------SINGLE-CELLED ORGANISMS-------"
         puts "       -----------------------    "
-      else
-        puts "Invalid number. Please select a number from the list or type 'EXIT'"
     end
   end
 
