@@ -26,16 +26,20 @@ class MooAndMore::Lifeform
   end
 
   def self.find(input, noun)
+    total = self.all.select{|list_item| input == list_item.category}.count
+    if noun.to_i > total
+      puts ""
+      puts "--------------"
+      puts "INVALID ENTRY!"
+      puts "--------------"
+    end
+
     self.all.detect do |list_item|
       if input == list_item.category && noun.to_i == list_item.id
-        puts ""
         puts ""
         puts "The collective noun(s) for #{list_item.name.upcase}:"
         puts "|   #{list_item.id}. #{list_item.noun.upcase}   |"
         puts ""
-        puts ""
-      else 
-        puts "INVALID ENTRY!"
       end
     end
   end

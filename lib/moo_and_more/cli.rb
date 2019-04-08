@@ -42,7 +42,11 @@ class MooAndMore::CLI
       when "DEPART"
         goodbye
       else
-        puts "INVALID NUMBER. Please select a number from the category list or exit by entering 'DEPART'"
+        puts ""
+        puts "--------------"
+        puts "INVALID NUMBER!"
+        puts "--------------"
+        puts "Please select a number from the category list or exit by entering 'DEPART'"
         self.get_input
     end
   end
@@ -53,17 +57,16 @@ class MooAndMore::CLI
     MooAndMore::Scraper.new.add_noun
     MooAndMore::Lifeform.find(input, noun)
     get_next(input)
-    # MooAndMore::Lifeform.find(lifeform)
   end
 
   def get_next(input)
     puts "Would you like to see another collective noun for a lifeform in the same category?
-         If yes, enter: 'MOO OVER'
+         If yes, enter: 'MOOVE OVER'
          To return to the main menu, enter: 'MORE LISTS'
          To exit Moo & More, enter: 'DEPART'"
 
     option = gets.strip.upcase
-    if option == "MOO OVER"
+    if option == "MOOVE OVER"
         print_category(input)
         MooAndMore::Scraper.new.get_category_list(input)
         get_noun(input)
@@ -72,7 +75,9 @@ class MooAndMore::CLI
     elsif option == "DEPART"
         goodbye
     else
+        puts "--------------"
         puts "INVALID ENTRY!"
+        puts "--------------"
         self.get_next(input)
     end
   end
