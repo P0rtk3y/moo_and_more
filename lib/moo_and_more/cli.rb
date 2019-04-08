@@ -38,7 +38,7 @@ class MooAndMore::CLI
         print_category(input)
         puts ""
         MooAndMore::Scraper.new.get_category_list(input)
-        get_noun(input)
+        get_or_add_noun(input)
       when "DEPART"
         goodbye
       else
@@ -51,11 +51,15 @@ class MooAndMore::CLI
     end
   end
 
-  def get_noun(input)
+  def get_or_add_noun(input)
     puts "Select a number to see the collective noun(s):"
     noun = gets.strip
-    MooAndMore::Scraper.new.add_noun
-    MooAndMore::Lifeform.find(input, noun)
+    if MooAndMore::Lifeform.all.empty?
+      MooAndMore::Scraper.new.add_noun
+      MooAndMore::Lifeform.find_noun(input, noun)
+    else
+      MooAndMore::Lifeform.find_noun(input, noun)
+    end
     get_next(input)
   end
 
@@ -69,7 +73,7 @@ class MooAndMore::CLI
     if option == "MOOVE OVER"
         print_category(input)
         MooAndMore::Scraper.new.get_category_list(input)
-        get_noun(input)
+        get_or_add_noun(input)
     elsif option == "MORE LISTS"
         start
     elsif option == "DEPART"
@@ -78,7 +82,7 @@ class MooAndMore::CLI
         puts "--------------"
         puts "INVALID ENTRY!"
         puts "--------------"
-        self.get_next(input)
+        get_next(input)
     end
   end
 

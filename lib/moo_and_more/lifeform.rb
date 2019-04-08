@@ -25,7 +25,7 @@ class MooAndMore::Lifeform
     @@all
   end
 
-  def self.find(input, noun)
+  def self.find_noun(input, noun)
     total = self.all.select{|list_item| input == list_item.category}.count
     if noun.to_i > total
       puts ""
