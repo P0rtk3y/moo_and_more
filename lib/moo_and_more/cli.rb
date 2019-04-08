@@ -19,6 +19,7 @@ class MooAndMore::CLI
   def start
     puts ""
     puts <<-DOC
+                   |CATEGORIES|
     Which category would you like to see?
          1. Mammals & Marsupials
          2. Birds
@@ -27,6 +28,7 @@ class MooAndMore::CLI
          5. Invertebrates (insects, mollusks, etc.)
          6. Single-Celled Organisms
     Enter: 1 - 6
+    ------------------------------------------------
     DOC
     get_input
   end
