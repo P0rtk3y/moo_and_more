@@ -10,7 +10,7 @@ class MooAndMore::CLI
     puts "          |        "+"(= X =)        | |      @|(   )|@".green+"   |"
     puts "          |      "+"|_('')('')   |_('')('')       ^^".green+"      |"
     puts "----------------------------------------------------------------------"
-    puts "  WELCOME TO MOO & MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS ".green
+    puts "  Welcome to MOO & MORE -- A COLLECTIVE NOUN GENERATOR FOR LIFEFORMS ".green
     puts "----------------------------------------------------------------------"
     MooAndMore::Scraper.new.get_page
     start
@@ -47,10 +47,10 @@ class MooAndMore::CLI
         goodbye
       else
         puts ""
-        puts "--------------"
-        puts "INVALID NUMBER!"
-        puts "--------------"
-        puts "Please select a number from the category list or exit by entering 'DEPART'"
+        puts "---------------"
+        puts "INVALID ENTRY!".red
+        puts "---------------"
+        puts "Please select a number from the categories list or exit by entering"+" 'DEPART'".red
         self.get_input
     end
   end
