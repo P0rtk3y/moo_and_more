@@ -30,15 +30,15 @@ class MooAndMore::Lifeform
     if noun.to_i > total
       puts ""
       puts "--------------"
-      puts "INVALID ENTRY!"
+      puts "INVALID ENTRY!".red
       puts "--------------"
     end
 
     self.all.detect do |list_item|
       if input == list_item.category && noun.to_i == list_item.id
         puts ""
-        puts "The collective noun(s) for #{list_item.name.upcase}:"
-        puts "|   #{list_item.id}. #{list_item.noun.upcase}   |"
+        puts "The collective noun(s) for"+" #{list_item.name.upcase}".green+":"
+        puts "|   "+"#{list_item.id}.".yellow + " #{list_item.noun.upcase}".green + "  |"
         puts ""
       end
     end
