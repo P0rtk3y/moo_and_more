@@ -37,7 +37,7 @@ class MooAndMore::Lifeform
     self.all.detect do |list_item|
       if input == list_item.category && noun.to_i == list_item.id
         puts ""
-        puts "The collective noun(s) for"+" #{list_item.name.upcase}".green+":"
+        puts "A group of"+" #{list_item.name.upcase}".green+" is called a:"
         puts "|   "+"#{list_item.id}.".yellow + " #{list_item.noun.upcase}".green + "  |"
         puts ""
       end
