@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/moo_and_more'
+require_relative '../lib/moo_and_more'
 
 
 MooAndMore::CLI.new.call

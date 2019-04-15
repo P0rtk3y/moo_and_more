@@ -27,7 +27,7 @@ class MooAndMore::Lifeform
 
   def self.find_noun(input, noun)
     total = self.all.select{|list_item| input == list_item.category}.count
-    if noun.to_i > total
+    if noun.to_i > total || noun.to_i < 1 || noun.to_i.class != Integer
       puts ""
       puts "--------------"
       puts "INVALID ENTRY!".red
@@ -37,8 +37,8 @@ class MooAndMore::Lifeform
     self.all.detect do |list_item|
       if input == list_item.category && noun.to_i == list_item.id
         puts ""
-        puts "A group of"+" #{list_item.name.upcase}".green+" is called a:"
-        puts "|   "+"#{list_item.id}.".yellow + " #{list_item.noun.upcase}".green + "  |"
+        puts "A group of"+" #{list_item.name.upcase}".green+" is called:"
+        puts "|   "+"#{list_item.id}.".yellow + " A #{list_item.noun.upcase}".green + "  |"
         puts ""
       end
     end

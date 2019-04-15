@@ -42,37 +42,3 @@ class MooAndMore::Scraper
   end
 
 end
-
-# def make_categories(input)
-#   @categories = {}
-#   list_content = self.get_page.css("tbody")
-#     list_content.each_with_index do |content, i|
-#       @categories["#{i.next}"] = content
-#     end
-#
-#   @categories["#{input}"].css("td").select.with_index do |lifeform, i|
-#     if i > 1 && i.even?
-#       puts "#{i/2}. #{lifeform.text}"
-#     end
-#   end
-# end
-
-
-  # def get_list
-  #   list = make_categories[:"1"]
-  #   list.values.each_with_index do |e, i|
-  #
-  #     if i >=2
-  #       "#{i-1}" + e.css("td")[i].text
-  #     binding.pry
-  #     end
-  #   end
-  #   list
-  #
-  # end
-
-
-
-# list_content.each do |category|
-#   @category[category.attributes["id"].value.to_sym] = category.css("tbody")
-# end
